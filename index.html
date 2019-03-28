@@ -19,7 +19,7 @@
     <script defer src="js/graph.js"></script>
     <script defer src="js/aws.js"></script>
 
-    <script defer src="plotly/minified.js"></script>
+    <script id="load-plotly" onload="plotlyLoaded()"></script>
 
 </head>
 
@@ -92,6 +92,7 @@
             <div class="center-title">Output</div>
             <div class="divider"></div>
             <div class="container-graph">
+                <div id="graph-loading-message">Waiting for file to load . . .</div>
                 <div id="graph-main"></div>
             </div>
             <div class="divider"></div>

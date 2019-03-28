@@ -3,5 +3,12 @@ function pageLoad() {
     output = new Output();
     data = new Data();
     timer = new Timer();
+    setTimeout(function() {
+        document.getElementById("load-plotly").src = "plotly/minified.js";
+    },10)
+}
+
+function plotlyLoaded() {
+    document.getElementById("graph-loading-message").innerHTML = "";
     graph = new Graph();
 }
