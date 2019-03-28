@@ -16,7 +16,10 @@
     <script src="js/data.js"></script>
     <script src="js/input.js"></script>
     <script src="js/output.js"></script>
+    <script src="js/graph.js"></script>
     <script src="js/aws.js"></script>
+
+    <script src="plotly/minified.js"></script>
 
 </head>
 
@@ -86,6 +89,32 @@
         </div>
 
         <div class="container-main-section">
+            <div class="center-title">Output</div>
+            <div class="divider"></div>
+            <div class="container-graph">
+                <div id="graph-main"></div>
+            </div>
+            <div class="divider"></div>
+            <div class="section-title">Data</div>
+            <div class="space-1"></div>
+            <div class="datatable">
+                <table id="output-display-table">
+                    <tr>
+                        <th>Step</th>
+                        <th>Moles titrant</th>
+                        <th>Volume titrant (l)</th>
+                        <th>Moles acid</th>
+                        <th>[Acid]</th>
+                        <th>Moles base</th>
+                        <th>[Base]</th>
+                        <th>Total Volume (l)</th>
+                        <th>pH</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="container-main-section">
             <div class="center-title">Info</div>
             <div class="divider"></div>
             <div class="section-title-no-bold">Request URL: <a href="" id="info-display-request-url"
@@ -94,50 +123,16 @@
             <div class="section-title-no-bold">Response Time: <span id="info-display-response-time">0</span> ms</div>
         </div>
 
-        <div class="container-main-section">
-            <div class="center-title">Output</div>
-            <div class="divider"></div>
-            <div class="divider"></div>
-            <div class="section-title">Data</div>
-            <div class="space-1"></div>
-            <div class="datatable">
-                <table id="output-display-table">
-                    <tbody id="output-display-table-headers">
-                        <tr>
-                            <th>Step</th>
-                            <th>Moles titrant</th>
-                            <th>Volume titrant (l)</th>
-                            <th>Moles acid</th>
-                            <th>[Acid]</th>
-                            <th>Moles base</th>
-                            <th>[Base]</th>
-                            <th>Total Volume (l)</th>
-                            <th>pH</th>
-                        </tr>
-                    </tbody >
-                    <tbody id="output-display-table-data">
-                        <tr id="output-display-table-row-0">
-                            <td id="output-display-table-row-0-id">0</td>
-                            <td id="output-display-table-row-0-moles-titrant">.001</td>
-                            <td id="output-display-table-row-0-volume-titrant">.002</td>
-                            <td id="output-display-table-row-0-moles-acid" class="datapoint-acid">.003</td>
-                            <td id="output-display-table-row-0-concentration-acid" class="datapoint-acid">.004</td>
-                            <td id="output-display-table-row-0-moles-base" class="datapoint-base">.005</td>
-                            <td id="output-display-table-row-0-concentration-base" class="datapoint-base">.006</td>
-                            <td id="output-display-table-row-0-total-volume">.007</td>
-                            <td id="output-display-table-row-0-pH" class="datapoint-pH">6.5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
+
+
 
     <script>
         input = new Input();
         output = new Output();
         data = new Data();
         timer = new Timer();
+        graph = new Graph();
     </script>
 </body>
 

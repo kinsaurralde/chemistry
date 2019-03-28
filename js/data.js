@@ -12,6 +12,7 @@ class Data {
             output.addRow(i);
             output.setRowData(i, this.recieved_data[i]);
         }
+        graph.setData("volume_titrant", "pH", this.recieved_data);
     }
 }
 
