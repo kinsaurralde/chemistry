@@ -11,16 +11,10 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/data.css" type="text/css">
 
-    <!--
-    <link rel="icon" href="images/icon.png">
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-    <link rel="stylesheet" href="css/secondary.css" type="text/css">
-    <link rel="stylesheet" href="css/footer.css" type="text/css">
-
-    <script src="js/weather.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/footer.js"></script>
-    <script src="skycons/skycons.js"></script>-->
+    <script src="js/main.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/aws.js"></script>
 
 </head>
 
@@ -34,49 +28,67 @@
             <div class="container-flex-horizontal">
                 <div class="section-title-no-bold">Titrand / Titrate:</div>
                 <div class="space-s-1"></div>
-                <select title="Titrate is added to titrand">
-                    <option>Strong Acid / Strong Base</option>
-                    <option>Strong Base / Strong Acid</option>
+                <select title="Titrate is added to titrand" id="input-type" oninput="input.checkType()">
+                    <option value="SASB">Strong Acid / Strong Base</option>
+                    <option value="SBSA">Strong Base / Strong Acid</option>
                 </select>
             </div>
             <div class="space-1"></div>
             <div class="container-flex-horizontal">
                 <div class="section-title-no-bold">Number of Cycles:</div>
                 <div class="space-s-1"></div>
-                <input type="number" min="0" max="10000" value="1000" title="Enter an integer in range (0 to 10000)">
+                <input type="number" min="0" max="10000" value="1000" title="Enter an integer in range (0 to 10000)"
+                    id="input-num-cycles" oninput="input.checkNumCycles()">
             </div>
             <div class="space-1"></div>
             <div class="container-flex-horizontal">
-                <div class="section-title-no-bold">Molarity titrand (<span>Acid</span>):</div>
+                <div class="section-title-no-bold">Molarity titrand (<span class="input-display-titrand">Acid</span>):
+                </div>
                 <div class="space-s-1"></div>
-                <input type="number" min="0" max="6" step=".05" value=".2" title="Range: (0 to 6)">
+                <input type="number" min="0" max="6" step=".05" value=".2" title="Range: (0 to 6)"
+                    id="input-titrand-concentration" oninput="input.checkTitrandConcentration()">
                 <div class="space-s-half1"></div>
                 <div class="section-title-no-bold">M</div>
                 <div class="space-s-2"></div>
-                <div class="section-title-no-bold">Volume titrand (<span>Acid</span>):</div>
+                <div class="section-title-no-bold">Volume titrand (<span class="input-display-titrand">Acid</span>):
+                </div>
                 <div class="space-s-1"></div>
-                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)">
+                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)"
+                    id="input-titrand-volume" oninput="input.checkTitrandVolume()">
                 <div class="space-s-half1"></div>
                 <div class="section-title-no-bold">ml</div>
             </div>
             <div class="space-1"></div>
             <div class="container-flex-horizontal">
-                <div class="section-title-no-bold">Molarity titrate (<span>Base</span>):</div>
+                <div class="section-title-no-bold">Molarity titrate (<span class="input-dispay-titrant">Base</span>):
+                </div>
                 <div class="space-s-1"></div>
-                <input type="number" min="0" max="6" step=".05" value=".2" title="Range: (0 to 6)">
+                <input type="number" min="0" max="6" step=".05" value=".2" title="Range: (0 to 6)"
+                    id="input-titrant-concentration" oninput="input.checkTitrantConcentration()">
                 <div class="space-s-half1"></div>
                 <div class="section-title-no-bold">M</div>
                 <div class="space-s-2"></div>
-                <div class="section-title-no-bold">Volume titrate (<span>Base</span>):</div>
+                <div class="section-title-no-bold">Volume titrate (<span class="input-dispay-titrant">Base</span>):
+                </div>
                 <div class="space-s-1"></div>
-                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)">
+                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)"
+                    id="input-titrant-volume" oninput="input.checkTitrantVolume()">
                 <div class="space-s-half1"></div>
                 <div class="section-title-no-bold">ml</div>
             </div>
             <div class="divider"></div>
             <div class="container-flex-centered">
-                <input type="button" value="Calculate">
+                <input type="button" value="Calculate" title="Click here to calcualte titration"
+                    onclick="input.checkCalculate()">
             </div>
+        </div>
+
+        <div class="container-main-section">
+            <div class="center-title">Info</div>
+            <div class="divider"></div>
+            <div class="section-title-no-bold">Request URL: <a href="" id="info-display-request-url" target="_blank"></a></div>
+            <div class="space-1"></div>
+            <div class="section-title-no-bold">Response Time: <span id="info-display-response-time">0</span> ms</div>
         </div>
 
         <div class="container-main-section">
@@ -135,6 +147,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        input = new Input();
+        timer = new Timer();
+    </script>
 </body>
 
 </html>
