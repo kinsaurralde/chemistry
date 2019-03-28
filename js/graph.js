@@ -3,7 +3,9 @@ class Graph {
         this.graph = document.getElementById("graph-main");
         this.x = [];
         this.y = [];
-        this.drawGraph();
+        setTimeout(function() {
+            graph.drawGraph();
+        }, 10);
     }
 
     resetGraph() {

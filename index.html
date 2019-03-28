@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/data.css" type="text/css">
 
-    <script src="js/main.js"></script>
-    <script src="js/utility.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/input.js"></script>
-    <script src="js/output.js"></script>
-    <script src="js/graph.js"></script>
-    <script src="js/aws.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/utility.js"></script>
+    <script defer src="js/data.js"></script>
+    <script defer src="js/input.js"></script>
+    <script defer src="js/output.js"></script>
+    <script defer src="js/graph.js"></script>
+    <script defer src="js/aws.js"></script>
 
-    <script src="plotly/minified.js"></script>
+    <script defer src="plotly/minified.js"></script>
 
 </head>
 
-<body>
+<body onload="pageLoad()">
     <div id="content">
         <div class="page-title">Titration Calculator</div>
         <div class="space-1"></div>
@@ -128,11 +128,11 @@
 
 
     <script>
-        input = new Input();
-        output = new Output();
-        data = new Data();
-        timer = new Timer();
-        graph = new Graph();
+        var input;
+        var output;
+        var data;
+        var timer;
+        var graph;
     </script>
 </body>
 
