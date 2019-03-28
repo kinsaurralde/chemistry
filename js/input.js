@@ -59,7 +59,7 @@ class Input {
 
     checkTitrandVolume() {
         let target = document.getElementById("input-titrand-volume");
-        this.input_data["titrand_vol"] = target.value;
+        this.input_data["titrand_vol"] = target.value / 1000;
         this.input_is_valid["titrand_vol"] = this.validateInputNumber(target.value, 0, 10000, false);
         console.log("Updating input-titrand_vol:", this.input_data.titrand_vol, this.input_is_valid.titrand_vol);
     }
@@ -73,7 +73,7 @@ class Input {
 
     checkTitrantVolume() {
         let target = document.getElementById("input-titrant-volume");
-        this.input_data["titrant_vol"] = target.value;
+        this.input_data["titrant_vol"] = target.value / 1000;
         this.input_is_valid["titrant_vol"] = this.validateInputNumber(target.value, 0, 10000, false);
         console.log("Updating input-titrant_vol:", this.input_data.titrant_vol, this.input_is_valid.titrant_vol);
     }

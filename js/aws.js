@@ -27,10 +27,9 @@ function sendRequest(url, target) {
     /* */
 }
 
-function recieveAWSStrongAB(data) {
-    console.log("Recieved Data:", data);
-    let response_time = timer.getElapsed();
-    console.log(response_time);
+function recieveAWSStrongAB(recieved_data) {
+    console.log("Recieved Data:", recieved_data);
+    data.setData(recieved_data);
 }
 
 function createRequest(input_data) {
@@ -43,6 +42,7 @@ function createRequest(input_data) {
     if (input_data["type"] == "SASB" || input_data["type"] == "SBSA") {
         target = recieveAWSStrongAB;
     }
+    url = url.substr(0, url.length - 1);
     let disaply_url = document.getElementById("info-display-request-url");
     disaply_url.href = url;
     disaply_url.innerText = url;

@@ -186,23 +186,3 @@ input , select {
     justify-content: center;
 }
 
-/* Table */
-.datatable table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.datatable th{
-    font-weight: bold;
-}
-
-.datatable td, .datatable th{
-    border: 1px solid rgb(200,200,200);
-    text-align: left;
-    font-size: 1vw;
-    padding: .5vw;
-}
-
-.datatable tr:nth-child(even) {
-    background-color: rgb(240,240,240);
-}

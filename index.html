@@ -13,7 +13,9 @@
 
     <script src="js/main.js"></script>
     <script src="js/utility.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/input.js"></script>
+    <script src="js/output.js"></script>
     <script src="js/aws.js"></script>
 
 </head>
@@ -21,7 +23,7 @@
 <body>
     <div id="content">
         <div class="page-title">Titration Calculator</div>
-        <div class="space-2"></div>
+        <div class="space-1"></div>
         <div class="container-main-section">
             <div class="center-title">Input</div>
             <div class="divider"></div>
@@ -71,7 +73,7 @@
                 <div class="section-title-no-bold">Volume titrant (<span class="input-display-titrant">Base</span>):
                 </div>
                 <div class="space-s-1"></div>
-                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)"
+                <input type="number" min="0" max="10000" step="1" value="20" title="Range: (0 to 10000)"
                     id="input-titrant-volume" oninput="input.checkTitrantVolume()">
                 <div class="space-s-half1"></div>
                 <div class="section-title-no-bold">ml</div>
@@ -86,7 +88,8 @@
         <div class="container-main-section">
             <div class="center-title">Info</div>
             <div class="divider"></div>
-            <div class="section-title-no-bold">Request URL: <a href="" id="info-display-request-url" target="_blank"></a></div>
+            <div class="section-title-no-bold">Request URL: <a href="" id="info-display-request-url"
+                    target="_blank"></a></div>
             <div class="space-1"></div>
             <div class="section-title-no-bold">Response Time: <span id="info-display-response-time">0</span> ms</div>
         </div>
@@ -98,51 +101,33 @@
             <div class="section-title">Data</div>
             <div class="space-1"></div>
             <div class="datatable">
-                <table>
-                    <tr>
-                        <th>Step</th>
-                        <th>Moles titrant</th>
-                        <th>Volume titrant (l)</th>
-                        <th>Moles acid</th>
-                        <th>[Acid]</th>
-                        <th>Moles base</th>
-                        <th>[Base]</th>
-                        <th>Total Volume (l)</th>
-                        <th>pH</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>.001</td>
-                        <td>.002</td>
-                        <td class="datapoint-acid">.003</td>
-                        <td class="datapoint-acid">.004</td>
-                        <td class="datapoint-base">.005</td>
-                        <td class="datapoint-base">.006</td>
-                        <td>.007</td>
-                        <td>6.5</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>.001</td>
-                        <td>.002</td>
-                        <td class="datapoint-acid">.003</td>
-                        <td class="datapoint-acid">.004</td>
-                        <td class="datapoint-base">.005</td>
-                        <td class="datapoint-base">.006</td>
-                        <td>.007</td>
-                        <td>6.5</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>.001</td>
-                        <td>.002</td>
-                        <td class="datapoint-acid">.003</td>
-                        <td class="datapoint-acid">.004</td>
-                        <td class="datapoint-base">.005</td>
-                        <td class="datapoint-base">.006</td>
-                        <td>.007</td>
-                        <td>6.5</td>
-                    </tr>
+                <table id="output-display-table">
+                    <tbody id="output-display-table-headers">
+                        <tr>
+                            <th>Step</th>
+                            <th>Moles titrant</th>
+                            <th>Volume titrant (l)</th>
+                            <th>Moles acid</th>
+                            <th>[Acid]</th>
+                            <th>Moles base</th>
+                            <th>[Base]</th>
+                            <th>Total Volume (l)</th>
+                            <th>pH</th>
+                        </tr>
+                    </tbody >
+                    <tbody id="output-display-table-data">
+                        <tr id="output-display-table-row-0">
+                            <td id="output-display-table-row-0-id">0</td>
+                            <td id="output-display-table-row-0-moles-titrant">.001</td>
+                            <td id="output-display-table-row-0-volume-titrant">.002</td>
+                            <td id="output-display-table-row-0-moles-acid" class="datapoint-acid">.003</td>
+                            <td id="output-display-table-row-0-concentration-acid" class="datapoint-acid">.004</td>
+                            <td id="output-display-table-row-0-moles-base" class="datapoint-base">.005</td>
+                            <td id="output-display-table-row-0-concentration-base" class="datapoint-base">.006</td>
+                            <td id="output-display-table-row-0-total-volume">.007</td>
+                            <td id="output-display-table-row-0-pH" class="datapoint-pH">6.5</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -150,6 +135,8 @@
 
     <script>
         input = new Input();
+        output = new Output();
+        data = new Data();
         timer = new Timer();
     </script>
 </body>
