@@ -5,6 +5,24 @@ class Input {
         this.checkAll();
     }
 
+    updateTitrandTitrantDisplay(type) {
+        let titrand_targets = document.getElementsByClassName("input-display-titrand");
+        let titrant_targets = document.getElementsByClassName("input-display-titrant");
+        let titrand;
+        let titrant;
+        if (type == "SASB") {
+            titrand = "Acid";
+            titrant = "Base";
+        } else if (type == "SBSA") {
+            titrand = "Base";
+            titrant = "Acid";
+        }
+        for (let i = 0; i < titrand_targets.length; i++) {
+            titrand_targets[i].innerText = titrand;
+            titrant_targets[i].innerText = titrant;
+        }
+    }
+
 
     /* Update from page */
 
@@ -18,42 +36,43 @@ class Input {
     }
 
     checkType() {
-        var target = document.getElementById("input-type");
+        let target = document.getElementById("input-type");
         this.input_data["type"] = target.value;
+        this.updateTitrandTitrantDisplay(target.value);
         this.input_is_valid["type"] = true;
         console.log("Updating input-type:", this.input_data.type);
     }
 
     checkNumCycles() {
-        var target = document.getElementById("input-num-cycles");
+        let target = document.getElementById("input-num-cycles");
         this.input_data["num_cycles"] = target.value;
         this.input_is_valid["num_cycles"] = this.validateInputNumber(target.value, 0, 10000, true);
         console.log("Updating input-num-cycles:", this.input_data.num_cycles, this.input_is_valid.num_cycles);
     }
 
     checkTitrandConcentration() {
-        var target = document.getElementById("input-titrand-concentration");
+        let target = document.getElementById("input-titrand-concentration");
         this.input_data["titrand_conc"] = target.value;
         this.input_is_valid["titrand_conc"] = this.validateInputNumber(target.value, 0, 6, false);
         console.log("Updating input-titrand_conc:", this.input_data.titrand_conc, this.input_is_valid.titrand_conc);
     }
 
     checkTitrandVolume() {
-        var target = document.getElementById("input-titrand-volume");
+        let target = document.getElementById("input-titrand-volume");
         this.input_data["titrand_vol"] = target.value;
         this.input_is_valid["titrand_vol"] = this.validateInputNumber(target.value, 0, 10000, false);
         console.log("Updating input-titrand_vol:", this.input_data.titrand_vol, this.input_is_valid.titrand_vol);
     }
 
     checkTitrantConcentration() {
-        var target = document.getElementById("input-titrant-concentration");
+        let target = document.getElementById("input-titrant-concentration");
         this.input_data["titrant_conc"] = target.value;
         this.input_is_valid["titrant_conc"] = this.validateInputNumber(target.value, 0, 6, false);
         console.log("Updating input-titrant_conc:", this.input_data.titrant_conc, this.input_is_valid.titrant_conc);
     }
 
     checkTitrantVolume() {
-        var target = document.getElementById("input-titrant-volume");
+        let target = document.getElementById("input-titrant-volume");
         this.input_data["titrant_vol"] = target.value;
         this.input_is_valid["titrant_vol"] = this.validateInputNumber(target.value, 0, 10000, false);
         console.log("Updating input-titrant_vol:", this.input_data.titrant_vol, this.input_is_valid.titrant_vol);
@@ -62,7 +81,7 @@ class Input {
     checkCalculate() {
         console.log("Preparing to calcualte");
         this.checkAll();
-        for (var value in this.input_is_valid) {
+        for (let value in this.input_is_valid) {
             if (!this.input_is_valid[value]) {
                 alert("The value of " + value + " is not valid");
                 return;
@@ -72,7 +91,7 @@ class Input {
     }
 
     validateInputNumber(number, min, max, is_integer) {
-        var is_valid = true;
+        let is_valid = true;
         if (number < min || number > max) {   // check bounds
             is_valid = false;
         }

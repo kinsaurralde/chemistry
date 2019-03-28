@@ -9,7 +9,7 @@ class Timer {
     }
 
     getElapsed() {
-        var time = Date.now() - this.start_time;
+        let time = Date.now() - this.start_time;
         return time;
     }
 
