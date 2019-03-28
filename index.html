@@ -1,4 +1,5 @@
 <html>
+
 <head>
 
     <title>Chemistry</title>
@@ -6,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kyle Insaurralde">
     <meta name="description" content="Display chemistry projects">
-    
+
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
     <!--
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="css/main.css" type="text/css">
@@ -21,6 +24,60 @@
 </head>
 
 <body>
-    <h1>Test</h1>
+    <div id="content">
+        <div class="page-title">Titration Calculator</div>
+        <div class="space-2"></div>
+        <div class="container-main-section">
+            <div class="center-title">Input</div>
+            <div class="divider"></div>
+            <div class="container-flex-horizontal">
+                <div class="section-title-no-bold">Titrand / Titrate:</div>
+                <div class="space-s-1"></div>
+                <select title="Titrate is added to titrand">
+                    <option>Strong Acid / Strong Base</option>
+                    <option>Strong Base / Strong Acid</option>
+                </select>
+            </div>
+            <div class="space-1"></div>
+            <div class="container-flex-horizontal">
+                <div class="section-title-no-bold">Number of Cycles:</div>
+                <div class="space-s-1"></div>
+                <input type="number" min="0" max="10000" value="1000" title="Enter an integer in range (0 to 10000)">
+            </div>
+            <div class="space-1"></div>
+            <div class="container-flex-horizontal">
+                <div class="section-title-no-bold">Molarity titrand (<span>Acid</span>):</div>
+                <div class="space-s-1"></div>
+                <input type="number" min="0" max="6" step=".05" value=".2" title="Range: (0 to 6)">
+                <div class="space-s-half1"></div>
+                <div class="section-title-no-bold">M</div>
+                <div class="space-s-2"></div>
+                <div class="section-title-no-bold">Volume titrand (<span>Acid</span>):</div>
+                <div class="space-s-1"></div>
+                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)">
+                <div class="space-s-half1"></div>
+                <div class="section-title-no-bold">ml</div>
+            </div>
+            <div class="space-1"></div>
+            <div class="container-flex-horizontal">
+                <div class="section-title-no-bold">Molarity titrate (<span>Base</span>):</div>
+                <div class="space-s-1"></div>
+                <input type="number" min="0" max="6" step=".05" value=".2" title="Range: (0 to 6)">
+                <div class="space-s-half1"></div>
+                <div class="section-title-no-bold">M</div>
+                <div class="space-s-2"></div>
+                <div class="section-title-no-bold">Volume titrate (<span>Base</span>):</div>
+                <div class="space-s-1"></div>
+                <input type="number" min="0" max="10000" step="1" value="10" title="Range: (0 to 10000)">
+                <div class="space-s-half1"></div>
+                <div class="section-title-no-bold">ml</div>
+            </div>
+            <div class="divider"></div>
+            <div class="container-flex-centered">
+                <input type="button" value="Calculate">
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
