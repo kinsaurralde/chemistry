@@ -1,0 +1,31 @@
+#footer {
+    margin-top: 1vw;
+    padding: .5vh;
+    border-top: 1px solid rgb(0,81,255);
+    background-color: rgb(200,200,200); 
+    height: 5vh;
+}
+
+.footer-flex {
+    display: flex;
+    flex-direction: row;
+    height: 4vh;
+    justify-content: center
+}
+
+.footer-item {
+    border: 1px solid rgb(255,255,255);
+    border-radius: 1vw;
+    width: 15vw;
+    height: 4vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5vh; 
+}
+
+.footer-item a {
+    position: relative; 
+    top: .6vh;
+}

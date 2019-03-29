@@ -48,4 +48,30 @@ class Output {
         let b = pH * 18;
         cell.style.color = "rgb("+r+","+g+","+b+")";
     }
+
+    downloadCSV() {
+        let download_text = "id,Moles Titrant,Volume Titrant,Moles Acid,Concentration Acid,Moles Base,Concentration Base,Total Volume,pH\n";
+        for (let i = 0; i < this.rows.length; i++) {
+            let current_row_text = "";
+            for (let j = 0; j < this.rows[0].length; j++) {
+                current_row_text += this.rows[i][j].innerText;
+                if (j < this.rows[0].length - 1) {
+                    current_row_text += ",";
+                }
+            }
+            download_text += current_row_text + "\n";
+        }
+        download("titration_data.csv", download_text);
+    }
+
+    downloadCSVGraph() {
+        let download_text = "Volume Titrant,pH\n";
+        for (let i = 0; i < this.rows.length; i++) {
+            let current_row_text = "";
+            current_row_text += this.rows[i][2].innerText + "," + this.rows[i][8].innerText;
+            download_text += current_row_text + "\n";
+        }
+        download("titration_graph_data.csv", download_text);
+    }
+
 }

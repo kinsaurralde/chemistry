@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/data.css" type="text/css">
+    <link rel="stylesheet" href="css/footer.css" type="text/css">
 
     <script defer src="js/main.js"></script>
     <script defer src="js/utility.js"></script>
@@ -27,7 +28,7 @@
     <div id="content">
         <div class="page-title">Titration Calculator</div>
         <div class="space-1"></div>
-        <div class="container-main-section">
+        <div class="container-main-section" id="input">
             <div class="center-title">Input</div>
             <div class="divider"></div>
             <div class="container-flex-horizontal">
@@ -88,12 +89,22 @@
             </div>
         </div>
 
-        <div class="container-main-section">
+        <div class="container-main-section" id="output">
             <div class="center-title">Output</div>
             <div class="divider"></div>
             <div class="container-graph">
                 <div id="graph-loading-message">Waiting for file to load . . .</div>
                 <div id="graph-main"></div>
+            </div>
+            <div class="divider"></div>
+            <div class="container-flex-centered">
+                <input type="button" value="Download Data (.csv)" title="Download all data in csv format"
+                    onclick="output.downloadCSV()">
+                <div class="space-s-1"></div>
+                <input type="button" value="Download Graph Data (.csv)" title="Download graph data in scv format"
+                    onclick="output.downloadCSVGraph()">
+                <div class="space-s-1"></div>
+                <input type="button" value="Scroll to Bottom" onclick="scrollToBottom()">
             </div>
             <div class="divider"></div>
             <div class="section-title">Data</div>
@@ -115,7 +126,7 @@
             </div>
         </div>
 
-        <div class="container-main-section">
+        <div class="container-main-section" id="info">
             <div class="center-title">Info</div>
             <div class="divider"></div>
             <div class="section-title-no-bold">Request URL: <a href="" id="info-display-request-url"
@@ -126,7 +137,26 @@
 
     </div>
 
-
+    <div id="footer-container">
+        <div id="footer">
+            <div class="footer-flex">
+                <div class="footer-item">
+                    <a href="https://kinsaurralde.com" target="_blank">kinsaurralde.com</a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://github.com/kinsaurralde/chemistry" target="_blank">Website Code</a>
+                </div>
+                <div class="footer-item">
+                        <a href="#">Scroll to Top</a>
+                    </div>
+                <div class="footer-item">
+                    <a href="https://github.com/kinsaurralde/titration" target="_blank">Titration c++ Code</a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://kinsaurralde.com/pages/titration.html" target="_blank">Project Description</a>
+            </div>
+        </div>
+    </div>
 
     <script>
         var input;

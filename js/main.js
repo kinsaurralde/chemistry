@@ -12,3 +12,8 @@ function plotlyLoaded() {
     document.getElementById("graph-loading-message").innerHTML = "";
     graph = new Graph();
 }
+
+function scrollToBottom() {
+    let element = document.getElementById("info");
+    element.scrollIntoView({behavior: "smooth"});
+}
