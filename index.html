@@ -1,15 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
-    <title>Chemistry</title>
+    <title>Titration Calculator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kyle Insaurralde">
-    <meta name="description" content="Display chemistry projects">
-
+    <meta name="description"
+        content="This titration calculator displays the calculations of a strong acid/base titration. It also graphs the volume of titrant added vs pH">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <link rel="stylesheet" href="css/data.css" type="text/css">
     <link rel="stylesheet" href="css/footer.css" type="text/css">
 
     <script defer src="js/main.js"></script>
@@ -25,11 +25,11 @@
 </head>
 
 <body onload="pageLoad()">
-    <div id="content">
-        <div class="page-title">Titration Calculator</div>
+    <main id="content">
+        <h1><div class="page-title">Titration Calculator</div></h1>
         <div class="space-1"></div>
         <div class="container-main-section" id="input">
-            <div class="center-title">Input</div>
+            <h2><div class="center-title">Input</div></h2>
             <div class="divider"></div>
             <div class="container-flex-horizontal">
                 <div class="section-title-no-bold">Titrand / Titrant:</div>
@@ -90,7 +90,7 @@
         </div>
 
         <div class="container-main-section" id="output">
-            <div class="center-title">Output</div>
+            <h2><div class="center-title">Output</div></h2>
             <div class="divider"></div>
             <div class="container-graph">
                 <div id="graph-loading-message">Waiting for file to load . . .</div>
@@ -127,36 +127,38 @@
         </div>
 
         <div class="container-main-section" id="info">
-            <div class="center-title">Info</div>
+            <h2><div class="center-title">Info</div></h2>
             <div class="divider"></div>
             <div class="section-title-no-bold">Request URL: <a href="" id="info-display-request-url"
-                    target="_blank"></a></div>
+                    aria-label="Request Url" target="_blank"></a></div>
             <div class="space-1"></div>
             <div class="section-title-no-bold">Response Time: <span id="info-display-response-time">0</span> ms</div>
         </div>
 
-    </div>
+    </main>
 
-    <div id="footer-container">
+    <footer id="footer-container">
         <div id="footer">
             <div class="footer-flex">
                 <div class="footer-item">
-                    <a href="https://kinsaurralde.com" target="_blank">kinsaurralde.com</a>
+                    <a href="https://kinsaurralde.com" target="_blank" rel="noopener">kinsaurralde.com</a>
                 </div>
                 <div class="footer-item">
-                    <a href="https://github.com/kinsaurralde/chemistry" target="_blank">Website Code</a>
+                    <a href="https://github.com/kinsaurralde/chemistry" target="_blank" rel="noopener">Website Code</a>
                 </div>
                 <div class="footer-item">
-                        <a href="#">Scroll to Top</a>
-                    </div>
-                <div class="footer-item">
-                    <a href="https://github.com/kinsaurralde/titration" target="_blank">Titration c++ Code</a>
+                    <a href="#">Scroll to Top</a>
                 </div>
                 <div class="footer-item">
-                    <a href="https://kinsaurralde.com/pages/titration.html" target="_blank">Project Description</a>
+                    <a href="https://github.com/kinsaurralde/titration" target="_blank" rel="noopener">Titration c++
+                        Code</a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://kinsaurralde.com/pages/titration.html" target="_blank" rel="noopener">Project
+                        Description</a>
+                </div>
             </div>
-        </div>
-    </div>
+    </footer>
 
     <script>
         var input;

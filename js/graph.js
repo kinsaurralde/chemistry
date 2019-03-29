@@ -4,6 +4,7 @@ class Graph {
         this.x = [];
         this.y = [];
         this.drawGraph();
+        data.graph_loaded = true;
     }
 
     resetGraph() {

@@ -2,6 +2,7 @@ class Data {
     constructor() {
         this.recieved_data;
         this.num_datapoints;
+        this.graph_loaded = false;
     }
 
     setData(input_data) {
@@ -13,6 +14,9 @@ class Data {
             output.setRowData(i, this.recieved_data[i]);
         }
         graph.setData("volume_titrant", "pH", this.recieved_data);
+        setTimeout(function() {
+            input.waiting = false;
+        }, 2000);
     }
 }
 

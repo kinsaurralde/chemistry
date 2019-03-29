@@ -2,6 +2,7 @@ class Input {
     constructor() {
         this.input_data = {};
         this.input_is_valid = {};
+        this.waiting = false;
         this.checkAll();
     }
 
@@ -87,7 +88,16 @@ class Input {
                 return;
             }
         }
-        createRequest(this.input_data);
+        if (data.graph_loaded) {
+            if (this.waiting) {
+                alert("Please wait for current request to finish");
+            } else {
+                this.waiting = true;
+                createRequest(this.input_data);
+            }
+        } else {
+            alert("Please wait until graph is done loading");
+        }
     }
 
     validateInputNumber(number, min, max, is_integer) {
