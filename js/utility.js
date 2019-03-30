@@ -17,6 +17,10 @@ class Timer {
         this.stored_time.push(this.getElapsed());
     }
 
+    getNewestStored() {
+        return this.stored_time[this.stored_time.length - 1];
+    }
+
     getStored(i) {
         return this.stored_time[i];
     }

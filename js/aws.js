@@ -9,7 +9,6 @@ function sendRequest(url, target) {
         if (request.status >= 200 && request.status < 400) {
             // Success!
             timer.storeTimer();
-            document.getElementById("info-display-response-time").innerText = timer.getStored(timer.stored_time.length - 1);
             let data = JSON.parse(request.responseText);
             target(data);
         } else {
